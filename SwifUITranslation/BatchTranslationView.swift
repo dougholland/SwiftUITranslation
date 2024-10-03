@@ -74,10 +74,6 @@ struct BatchTranslationView: View {
         
         configuration?.invalidate()
     }
-    
-    //func handle(_ response: TranslationSession.BatchResponse) {
-        
-    //}
 }
 
 #Preview {
