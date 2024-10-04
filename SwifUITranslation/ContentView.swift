@@ -19,6 +19,11 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "2.circle")
                 }
+            
+            CustomTranslationView()
+                .tabItem {
+                    Image(systemName: "3.circle")
+                }
         }
     }
 }
