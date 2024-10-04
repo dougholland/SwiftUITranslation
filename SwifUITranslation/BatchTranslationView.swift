@@ -15,12 +15,15 @@ struct BatchTranslationView: View {
     
     @State private var configuration: TranslationSession.Configuration?
     
+    @FocusState private var focus: Bool
+    
     var body: some View {
         VStack {
             TextField("enter a new task", text: $task, axis: .vertical)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .frame(minHeight: 200)
+                .focused($focus)
             
             Button(action: {
                 if !task.isEmpty {
@@ -36,6 +39,8 @@ struct BatchTranslationView: View {
             
             Button(action: {
                 Task {
+                    focus = false
+                    
                     try await performTranslation()
                 }
             }) {

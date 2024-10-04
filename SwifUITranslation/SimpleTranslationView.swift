@@ -15,15 +15,20 @@ struct SimpleTranslationView: View {
     
     @State private var configuration: TranslationSession.Configuration?
     
+    @FocusState private var focus: Bool
+    
     var body: some View {
         VStack {
             TextField("enter text to translate", text: $text, axis: .vertical)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .frame(minHeight: 200)
+                .focused($focus)
             
             Button(action: {
                 Task {
+                    focus = false
+                    
                     try await performTranslation()
                 }
             }) {
