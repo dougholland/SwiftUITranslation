@@ -66,6 +66,8 @@ struct BatchTranslationView: View {
                 tasks = responses.map {
                     $0.targetText
                 }
+                
+                configuration = nil
             } catch {
                 // TODO: handle errors
             }

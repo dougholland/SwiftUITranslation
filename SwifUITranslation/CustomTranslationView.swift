@@ -15,6 +15,8 @@ struct CustomTranslationView: View {
     
     @State private var configuration: TranslationSession.Configuration?
     
+    @State private var selectedLanguage: Language = .french
+    
     @FocusState private var focus: Bool
     
     var body: some View {
@@ -24,6 +26,13 @@ struct CustomTranslationView: View {
                 .padding()
                 .frame(minHeight: 200)
                 .focused($focus)
+            
+            Picker("select target language", selection: $selectedLanguage) {
+                ForEach(Language.allCases, id: \.self) { language in
+                    Text(language.name)
+                        .tag(language)
+                }
+            }
             
             Button(action: {
                 Task {
@@ -50,6 +59,8 @@ struct CustomTranslationView: View {
                 let response = try await session.translate(text)
                 
                 translatedText = response.targetText
+                
+                configuration = nil
             } catch {
                 // TODO: handle errors
             }
@@ -58,7 +69,7 @@ struct CustomTranslationView: View {
     
     func performTranslation() async throws {
         if configuration == nil {
-            configuration = TranslationSession.Configuration(source: Locale.Language(identifier: "en-US"), target: Locale.Language(identifier: "fr-FR"))
+            configuration = TranslationSession.Configuration(source: Locale.Language(identifier: "en-US"), target: Locale.Language(identifier: selectedLanguage.rawValue))
         }
         
         configuration?.invalidate()

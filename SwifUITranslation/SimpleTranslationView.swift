@@ -50,6 +50,8 @@ struct SimpleTranslationView: View {
                 let response = try await session.translate(text)
                 
                 translatedText = response.targetText
+                
+                configuration = nil
             } catch {
                 // TODO: handle errors
             }
