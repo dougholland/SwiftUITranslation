@@ -1,4 +1,4 @@
-# SwiftUITranslation
+# SwiftUI Translation
 
 SwiftUI translation sample using the [Apple Translation Framework](https://developer.apple.com/documentation/translation/).
 
