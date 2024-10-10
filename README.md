@@ -2,10 +2,13 @@
 
 SwiftUI translation sample using the [Apple Translation Framework](https://developer.apple.com/documentation/translation/).
 
-The sample has the following three tabs within a TabView, illustrating different features of the framework.
+The sample has the following four tabs within a TabView, illustrating different features of the framework.
 
 - Simple Translation View
   - Illustrates the use of text translation using the [TranslationSession](https://developer.apple.com/documentation/translation/translationsession) class.
+
+- Translation Presentation View
+  - Illustrates the use of the [translationPresentation](https://developer.apple.com/documentation/swiftui/view/translationpresentation(ispresented:text:attachmentanchor:arrowedge:replacementaction:)) modifier.
  
 - Batch Translationn View
   - Illustrates the use of batch translation where each string in an array of strings, representing tasks within a task list, are translated asynchronously.
