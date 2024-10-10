@@ -15,14 +15,19 @@ struct ContentView: View {
                     Image(systemName: "1.circle")
                 }
             
-            BatchTranslationView()
+            TranslationPresentationView()
                 .tabItem {
                     Image(systemName: "2.circle")
                 }
             
-            CustomTranslationView()
+            BatchTranslationView()
                 .tabItem {
                     Image(systemName: "3.circle")
+                }
+            
+            CustomTranslationView()
+                .tabItem {
+                    Image(systemName: "4.circle")
                 }
         }
     }
